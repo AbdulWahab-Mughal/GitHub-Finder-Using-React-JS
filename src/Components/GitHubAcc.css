@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(68, 64, 64);
+}
+#root {
+  height: max-content;
+  width: 50%;
+  border-radius: 15px;
+  background-color: rgb(240, 245, 245);
+}
+.container {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.newhead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 7px;
+  border-radius: 12px;
+  text-align: center;
+  width: 43%;
+  background-color: black;
+  color: aliceblue;
+  margin-top: 10px;
+}
+.newhead img {
+  border-radius: 50%;
+  background-color: aliceblue;
+  height: 35px;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  width: 80%;
+}
+.input input {
+  padding: 8px;
+  background-color: rgb(160, 158, 154);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  width: 80%;
+  font-size: 18px;
+  text-align: center;
+}
+.input input::placeholder {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(78, 71, 71);
+}
+.input button {
+  background: #000;
+  width: 20%;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  font-size: 16px;
+  padding: 9px;
+  color: thistle;
+}
+
+.section {
+  height: 60vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftsection {
+  height: 52vh;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background: rgb(68, 64, 64);
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.leftsection .loginName {
+  display: flex;
+  border-bottom: 2px solid black;
+  flex-direction: column;
+  align-items: center;
+}
+.leftsection .image img {
+  border-radius: 50%;
+}
+.leftsection :nth-child(1) {
+  margin-block: 10px;
+}
+
+.follows {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.follows .followers,
+.follows .following {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rightsection {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  background: rgb(68, 64, 64);
+  width: 35%;
+  height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rightsection div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rightsection div p {
+  color: rgba(238, 216, 188, 0.884);
+}
+.rightsection div h3 {
+  border-bottom: 2px solid black;
+}
+.rightsection :nth-child(1) {
+  margin-block: 10px;
+}
+@media (max-width: 1920px) {
+  #root {
+    width: 50%;
+  }
+  .container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .newhead {
+    justify-content: center;
+    border-radius: 13px;
+    width: 90%;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .newhead img {
+    margin: 0px 4px;
+
+    height: 35px;
+  }
+
+  .input {
+    margin-top: 9px;
+    padding: 13px;
+    width: 95%;
+  }
+  .input input {
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .input input::placeholder {
+    text-align: center;
+    font-size: 17px;
+  }
+  .input button {
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  .section {
+    /* background: rgb(68, 64, 64); */
+    height: 60vh;
+    width: 100%;
+  }
+  .leftsection {
+    height: 55vh;
+  }
+  .leftsection .loginName p {
+    font-size: 15px;
+  }
+  .leftsection .loginName h3 {
+    font-size: 19px;
+  }
+  .leftsection .image img {
+    height: 150px;
+  }
+
+  .leftsection :nth-child(1) {
+    margin-block: 10px;
+  }
+
+  .follows .followers,
+  .follows .following {
+    font-size: 16px;
+  }
+  .rightsection {
+    height: 55vh;
+  }
+
+  .rightsection div p {
+    font-size: 14px;
+  }
+  .rightsection div h3 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 70%;
+  }
+  .container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .newhead {
+    justify-content: center;
+    border-radius: 13px;
+    width: 90%;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .newhead img {
+    margin: 0px 4px;
+
+    height: 35px;
+  }
+
+  .input {
+    margin-top: 9px;
+    padding: 13px;
+    width: 95%;
+  }
+  .input input {
+    padding: 14px;
+    font-size: 18px;
+    text-align: left;
+  }
+  .input input::placeholder {
+    text-align: left;
+    font-size: 17px;
+  }
+  .input button {
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  .section {
+    height: 60vh;
+    width: 100%;
+  }
+  .leftsection {
+    height: 55vh;
+  }
+  .leftsection .loginName p {
+    font-size: 13px;
+  }
+  .leftsection .loginName h3 {
+    font-size: 17px;
+  }
+  .leftsection .image img {
+    height: 140px;
+  }
+
+  .leftsection :nth-child(1) {
+    margin-block: 4px;
+  }
+
+  .follows .followers,
+  .follows .following {
+    font-size: 14px;
+  }
+  .rightsection {
+    height: 55vh;
+  }
+
+  .rightsection div p {
+    font-size: 14px;
+  }
+  .rightsection div h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  #root {
+    width: 90%;
+  }
+  .container {
+    width: 100%;
+  }
+  .newhead {
+    justify-content: center;
+    border-radius: 13px;
+    width: 90%;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  .newhead img {
+    margin: 0px 4px;
+
+    height: 25px;
+  }
+
+  .input {
+    margin-top: 9px;
+    padding: 13px;
+    width: 95%;
+  }
+  .input input {
+    font-size: 14px;
+    text-align: left;
+  }
+  .input input::placeholder {
+    text-align: left;
+    font-size: 14px;
+  }
+  .input button {
+    font-size: 12px;
+  }
+
+  .section {
+    height: 60vh;
+    width: 100%;
+  }
+  .leftsection {
+    height: 55vh;
+  }
+  .leftsection .loginName p {
+    font-size: 11px;
+  }
+  .leftsection .loginName h3 {
+    font-size: 14px;
+  }
+  .leftsection .image img {
+    height: 120px;
+  }
+
+  .leftsection :nth-child(1) {
+    margin-block: 5px;
+  }
+
+  .follows .followers,
+  .follows .following {
+    font-size: 12px;
+  }
+  .rightsection {
+    height: 55vh;
+  }
+
+  .rightsection div p {
+    font-size: 10px;
+  }
+  .rightsection div h3 {
+    font-size: 13px;
+  }
+}
