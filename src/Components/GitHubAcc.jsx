@@ -3,33 +3,56 @@ import "./GitHubAcc.css";
 import Assets from "./../assets/Images/icons8-github-128.png";
 
 const GitHubAcc = () => {
+  const [IsRender, setIsRender] = useState(false);
   const [inputValue, setinputValue] = useState("");
+  const [isError, setIsError] = useState("");
   const [userData, setUserData] = useState({});
   const [githubUser, setGithubUser] = useState("")
 
  
  
 useEffect(()=>{
+  if(githubUser){
+
     FetchApi();
+  }
 }, [githubUser]);
 
-
-const FetchApi = async ()=>{
-  const response = await fetch(`https://api.github.com/users/${githubUser}`);
-  const data = await response.json();
-  setUserData(data);
+const FetchApi = async () => {
+  try {
+    const response = await fetch(`https://api.github.com/users/${githubUser}`);
+      if (!response.ok) {
+      setIsError("User not found");
+      setIsRender(false)
+      return;
+    }
+    
+    const data = await response.json();
+    setUserData(data);
+  } catch (error) {
+    setIsError("Network error");
+  }
 };
 
+// const FetchApi = async ()=>{
+//   const response = await fetch(`https://api.github.com/users/${githubUser}`);
+//   const data = await response.json();
+//   setUserData(data);
+// };
 
-  const OnClickHandler=(e)=>{
-    e.preventDefault()
+
+  const OnClickHandler=()=>{
 
     if(!inputValue){
-        setinputValue("invalid")
+      setIsError("Please Enter Username");
+      setIsRender(false)
+
     }
     else{
         setGithubUser(inputValue)
         setinputValue("")
+        setIsRender(true)
+        setIsError("")
     }
 
 
@@ -47,7 +70,8 @@ const FetchApi = async ()=>{
         <input type="text" placeholder="Enter UserName" onChange={(e)=>{setinputValue(e.target.value)}} value={inputValue}/>
         <button onClick={OnClickHandler}>Search</button>
       </div>
-      <div className="section">
+      <span>{isError}</span>
+      {IsRender && <div className="section">
         <div className="leftsection">
           <div className="image ">
             <img src={userData.avatar_url? userData.avatar_url : Assets} alt="" height={150.5} />
@@ -86,6 +110,7 @@ const FetchApi = async ()=>{
           </div>
         </div>
       </div>
+      }
     </div>
     </>
   );
