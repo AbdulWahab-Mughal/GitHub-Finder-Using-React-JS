@@ -3,14 +3,37 @@ import "./GitHubAcc.css";
 import Assets from "./../assets/Images/icons8-github-128.png";
 
 const GitHubAcc = () => {
+  const[isError,setIsError] = useState("")
+  const [IsRender,setIsRender] = useState(false)
   const [inputValue, setinputValue] = useState("");
   const [userData, setUserData] = useState({});
   const [githubUser, setGithubUser] = useState("")
 
  
  
-useEffect(()=>{
-    FetchApi();
+  
+  
+  const OnClickHandler=(e)=>{
+    e.preventDefault()
+    
+    if(!inputValue){
+
+      setIsError("Please Enter Username")
+      
+
+    }
+    else if(userData.message){
+      setIsError(userData.message)
+      }
+    else{
+      setGithubUser(inputValue)
+      setinputValue("")
+      setIsRender(true)
+    }
+  }
+
+  useEffect(()=>{
+  FetchApi();
 }, [githubUser]);
 
 
@@ -21,19 +44,6 @@ const FetchApi = async ()=>{
 };
 
 
-  const OnClickHandler=(e)=>{
-    e.preventDefault()
-
-    if(!inputValue){
-        setinputValue("invalid")
-    }
-    else{
-        setGithubUser(inputValue)
-        setinputValue("")
-    }
-
-
-  }
 
   return (
     <>
@@ -47,7 +57,9 @@ const FetchApi = async ()=>{
         <input type="text" placeholder="Enter UserName" onChange={(e)=>{setinputValue(e.target.value)}} value={inputValue}/>
         <button onClick={OnClickHandler}>Search</button>
       </div>
-      <div className="section">
+      <span>{isError}</span>
+      {IsRender &&
+        <div className="section">
         <div className="leftsection">
           <div className="image ">
             <img src={userData.avatar_url? userData.avatar_url : Assets} alt="" height={150.5} />
@@ -86,6 +98,7 @@ const FetchApi = async ()=>{
           </div>
         </div>
       </div>
+       }
     </div>
     </>
   );

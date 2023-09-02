@@ -76,8 +76,12 @@ body {
   padding: 9px;
   color: thistle;
 }
+.container span{
+  color: red;
+}
 
 .section {
+  color: rgba(202, 197, 192, 0.884);;
   height: 60vh;
   width: 100%;
 
@@ -98,7 +102,7 @@ body {
 }
 .leftsection .loginName {
   display: flex;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   flex-direction: column;
   align-items: center;
 }
@@ -139,10 +143,11 @@ body {
   align-items: center;
 }
 .rightsection div p {
-  color: rgba(238, 216, 188, 0.884);
+  color: rgba(202, 197, 192, 0.884);
 }
 .rightsection div h3 {
-  border-bottom: 2px solid black;
+  color: rgba(202, 197, 192, 0.884);
+  /* border-bottom: 2px solid black; */
 }
 .rightsection :nth-child(1) {
   margin-block: 10px;
